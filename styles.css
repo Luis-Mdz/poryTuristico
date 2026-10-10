@@ -1,0 +1,231 @@
+:root {
+  --primario: #E10600;
+    --secundario: #F1F1F1;
+    --oscuro: #15151E;
+    --claro: #FFFFFF;
+    --gris: #555555;
+  --peligro: #ffb700;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--oscuro);
+  background: #f4f7f6;
+}
+.encabezado {
+  min-height: 220px;
+  padding: 40px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--claro);
+  background: linear-gradient(135deg, #15151E, #E10600);
+}
+.encabezado h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.encabezado p {
+  margin: 0;
+}
+.contenedor {
+  width: min(1100px, 90%);
+  margin: 30px auto;
+}
+.controles {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+.controles input,
+.controles select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b8c5c2;
+  border-radius: 10px;
+  background: white;
+  font-size: 1rem;
+}
+.controles input:focus,
+.controles select:focus {
+  outline: 3px solid #E1060025;
+  border-color: var(--primario);
+}
+
+/* Notificaciones visuales en pantalla */
+.notificacion {
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.notificacion.error {
+  background-color: #fde8e8;
+  color: var(--peligro);
+  border: 1px solid #f8b4b4;
+}
+.notificacion.exito {
+  background-color: var(--secundario);
+  color: var(--primario);
+  border: 1px solid #b2dfdb;
+}
+.oculto {
+  display: none;
+}
+
+.estado {
+  color: var(--gris);
+  margin: 15px 0;
+}
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.tarjeta {
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--claro);
+  box-shadow: 0 4px 12px #00000018;
+  transition: transform 0.2s;
+}
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+.imagen {
+  min-height: 125px;
+  display: grid;
+  place-items: center;
+  background: var(--secundario);
+  font-size: 3.5rem;
+}
+.informacion {
+  padding: 18px;
+}
+.categoria {
+  color: var(--primario);
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.tarjeta input[type="number"] {
+  width: 75px;
+  padding: 8px;
+  margin: 10px 0;
+}
+.btn-reservar {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+  background: var(--primario);
+}
+.resumen {
+  margin-top: 35px;
+  padding: 25px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px #00000018;
+}
+.item-reserva {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+.item-reserva p {
+  margin: 5px 0;
+}
+.controles-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+.btn-modificar {
+  background-color: #e0f2f1;
+  color: var(--oscuro);
+  font-weight: bold;
+  padding: 4px 10px;
+}
+.btn-eliminar {
+  color: white;
+  background: var(--peligro);
+  margin-top: 8px;
+}
+.resumen-totales {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #ddd;
+  margin-top: 15px;
+  padding-top: 10px;
+}
+.total {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.btn-vaciar {
+  background-color: var(--peligro);
+  color: white;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.sin-resultados {
+  grid-column: 1/-1;
+  padding: 30px;
+  text-align: center;
+  background: white;
+  border-radius: 14px;
+}
+footer {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background: var(--oscuro);
+}
+@media (max-width: 850px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .controles {
+    grid-template-columns: 1fr 1fr;
+  }
+  #buscador {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 550px) {
+  .catalogo,
+  .controles {
+    grid-template-columns: 1fr;
+  }
+  #buscador {
+    grid-column: auto;
+  }
+  .encabezado {
+    min-height: 180px;
+    padding: 30px 5%;
+  }
+  .item-reserva {
+    flex-direction: column;
+  }
+}
